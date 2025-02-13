@@ -20,19 +20,39 @@ export default function CategorySlider() {
         getCategories();
     },[])
 
-    const settings ={
-        infinite: true,
-        speed: 500,
-        slidesToShow: 7,
-        slidesToScroll: 2,
-        autoplay: true,
+    const settings = {
+      infinite: true,
+      speed: 500,
+      slidesToShow: 7, 
+      slidesToScroll: 2,
+      autoplay: true,
+      responsive: [
+        {
+          breakpoint: 1024, 
+          settings: {
+            slidesToShow: 4,
+          },
+        },
+        {
+          breakpoint: 768, 
+          settings: {
+            slidesToShow: 3,
+          },
+        },
+        {
+          breakpoint: 480, 
+          settings: {
+            slidesToShow: 3,
+          },
+        },
+      ],
     };
   return (<>
-    <div>
-      <Slider  {...settings}>
+    <div className='py-3'>
+      <Slider {...settings}>
         {
             categories.map((c)=> <div key={c._id}>
-                <img className='h-56 w-full object-cover' src={c.image} alt="" />
+                <img className='h-52 w-full object-cover' src={c.image} alt="" />
                 <h2 className='text-center text-lg font-normal'>{c.name}</h2>
             </div>)
         }

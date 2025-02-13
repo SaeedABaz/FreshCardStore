@@ -20,7 +20,7 @@ export default function Home() {
       ) : error ? (
         <h2 className="text-red-500">Error fetching products!</h2>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-3 mt-4">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-3 mt-4">
           {products.map((p) => (
             <ProductCard key={p._id} product={p} />
           ))}
